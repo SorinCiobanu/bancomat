@@ -1,0 +1,59 @@
+<script>
+
+    const PIN   = "1234"
+
+    let pin     = ""
+    let tries   = 0
+    let balance = 1000000.00
+
+    while( true ) {
+
+        pin = prompt("Enter PIN: ")
+
+        tries++
+
+        if ( pin == PIN ) {
+            // ///////////////////////
+            alert(`
+            Acces Granted!!!\n\n
+            your balance: ${balance}MDL
+            `)
+
+            let yes = "yes"
+            let no  = "no"
+
+            withDraw = prompt(`Doresti sa scoti bani?
+                               "yes" or "no"
+                               `)
+            if(  withDraw == yes ) {
+
+                let money = +prompt("Withdraw: ?")
+                let maxMoney = 50000.00
+                if (money <= maxMoney) {
+                    
+                    balance -= money
+                    alert(`
+                        Success!!!\n\n
+                        your balance: ${balance}MDL
+                    `)
+                } else {
+                    alert("Sorry Max money: 50000")
+                }
+            } else {
+                alert("Thank you!!")
+            }
+
+            // ///////////////////////
+            break
+        } else {
+            alert("Wrong PIN!!!")
+
+            if( tries == 3 ) {
+                alert( "Card Bloked!!!" )
+                break
+            }
+        }
+
+    }
+
+</script>
